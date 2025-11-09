@@ -307,6 +307,27 @@
             display: inline-block;
             margin-right: 10px;
         }
+        
+        /* Utility styles for two-column layouts */
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .info-box {
+            background: rgba(45, 90, 123, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .info-box-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
 
         /* Responsive Design */
         @media (max-width: 1024px) {
@@ -357,6 +378,10 @@
             .data-table td {
                 padding: 10px 8px;
             }
+            
+            .two-col-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -392,15 +417,15 @@
                     <div class="content-line" style="margin-top: 30px;"><strong>Example:</strong> <span class="mono">192.168.1.1</span></div>
                     
                     <div class="content-line highlight" style="margin-top: 35px;">IP Address Versions:</div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                        <div style="background: rgba(45, 90, 123, 0.3); padding: 20px; border-radius: 10px; border-left: 4px solid #00d4ff;">
-                            <div style="font-size: 1.5rem; font-weight: 600; margin-bottom: 10px;">IPv4</div>
+                    <div class="two-col-grid">
+                        <div class="info-box" style="border-left: 4px solid #00d4ff;">
+                            <div class="info-box-title">IPv4</div>
                             <div class="content-line">• 32-bit addressing</div>
                             <div class="content-line">• ~4.3 billion addresses</div>
                             <div class="content-line">• Most widely used today</div>
                         </div>
-                        <div style="background: rgba(45, 90, 123, 0.3); padding: 20px; border-radius: 10px; border-left: 4px solid #ff6b35;">
-                            <div style="font-size: 1.5rem; font-weight: 600; margin-bottom: 10px;">IPv6</div>
+                        <div class="info-box" style="border-left: 4px solid #ff6b35;">
+                            <div class="info-box-title">IPv6</div>
                             <div class="content-line">• 128-bit addressing</div>
                             <div class="content-line">• 340 undecillion addresses</div>
                             <div class="content-line">• Future of networking</div>
@@ -409,8 +434,63 @@
                 </div>
             </div>
 
-            <!-- Slide 3: Structure of an IP Address -->
+            <!-- Slide 3: NEW - IPv4 vs. IPv6 Deep Dive -->
             <div class="slide" data-slide="3">
+                <h2 class="slide-title"><span class="slide-icon">🔄</span>IPv4 vs. IPv6 Deep Dive</h2>
+                <div class="slide-content">
+                    <div class="two-col-grid">
+                        <div class="info-box" style="border: 2px solid #00d4ff;">
+                            <div class="info-box-title" style="color: #00d4ff;">IPv4 (Internet Protocol v4)</div>
+                            <div class="content-line">• <strong>Address Size:</strong> 32-bit</div>
+                            <div class="content-line">• <strong>Format:</strong> Dotted-Decimal</div>
+                            <div class="content-line indent"><span class="mono">172.217.14.228</span></div>
+                            <div class="content-line">• <strong>Address Space:</strong> ~4.3 Billion</div>
+                            <div class="content-line">• <strong>Key Feature:</strong> Facing exhaustion, relies heavily on NAT (Network Address Translation) to conserve addresses.</div>
+                        </div>
+                        <div class="info-box" style="border: 2px solid #ff6b35;">
+                            <div class="info-box-title" style="color: #ff6b35;">IPv6 (Internet Protocol v6)</div>
+                            <div class="content-line">• <strong>Address Size:</strong> 128-bit</div>
+                            <div class="content-line">• <strong>Format:</strong> Hexadecimal</div>
+                            <div class="content-line indent" style="font-size: 1rem;"><span class="mono">2001:0db8:85a3:0000: 0000:8a2e:0370:7334</span></div>
+                            <div class="content-line">• <strong>Address Space:</strong> 340 Undecillion</div>
+                            <div class="content-line">• <strong>Key Feature:</strong> Solves exhaustion, built-in security (IPsec), no NAT needed, simplifies routing.</div>
+                        </div>
+                    </div>
+                     <div class="content-line" style="margin-top: 30px; background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 8px;">
+                        <strong>Why IPv6?</strong> The explosive growth of internet-connected devices (phones, IoT, smart homes) required a new protocol with a massive address space, which IPv6 provides.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: NEW - MAC vs. IP Addressing -->
+            <div class="slide" data-slide="4">
+                <h2 class="slide-title"><span class="slide-icon">📍</span>MAC vs. IP Addressing</h2>
+                <div class="slide-content">
+                    <div class="content-line">Two essential addresses work together at different network layers.</div>
+                    <div class="two-col-grid">
+                        <div class="info-box" style="border: 2px solid #2196F3;">
+                            <div class="info-box-title" style="color: #2196F3;">📍 IP Address (Logical)</div>
+                            <div class="content-line">• <strong>Layer 3</strong> (Network Layer)</div>
+                            <div class="content-line">• Logical, hierarchical address</div>
+                            <div class="content-line">• Changes based on the network</div>
+                            <div class="content-line">• Used for routing <strong>between networks</strong></div>
+                            <div class="content-line">• Example: <span class="mono">192.168.1.10</span></div>
+                        </div>
+                        <div class="info-box" style="border: 2px solid #ff6b35;">
+                            <div class="info-box-title" style="color: #ff6b35;">🏷️ MAC Address (Physical)</div>
+                            <div class="content-line">• <strong>Layer 2</strong> (Data Link Layer)</div>
+                            <div class="content-line">• Physical, unique hardware ID</div>
+                            <div class="content-line">• Permanent, burned into the NIC</div>
+                            <div class="content-line">• Used for delivery <strong>within a network</strong></div>
+                            <div class="content-line">• Example: <span class="mono">0A:1B:2C:3D:4E:5F</span></div>
+                        </div>
+                    </div>
+                    <div class="content-line highlight" style="margin-top: 30px; text-align: center;">Analogy: An IP address is your house's street address (can change if you move), while a MAC address is your personal ID (never changes).</div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Structure of an IP Address (Original Slide 4) -->
+            <div class="slide" data-slide="5">
                 <h2 class="slide-title"><span class="slide-icon">🧩</span>Structure of an IP Address</h2>
                 <div class="slide-content">
                     <div class="content-line highlight">IPv4 Structure:</div>
@@ -426,7 +506,7 @@
                     </div>
                     
                     <div class="content-line highlight" style="margin-top: 30px;">Address Breakdown:</div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div class="two-col-grid">
                         <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 10px; border: 2px solid #4CAF50;">
                             <div style="font-size: 1.5rem; font-weight: 600; margin-bottom: 10px; color: #4CAF50;">🌐 Network ID</div>
                             <div class="content-line">Identifies the specific network</div>
@@ -441,8 +521,8 @@
                 </div>
             </div>
 
-            <!-- Slide 4: Classful Addressing Overview -->
-            <div class="slide" data-slide="4">
+            <!-- Slide 6: Classful Addressing Overview (Original Slide 6) -->
+            <div class="slide" data-slide="6">
                 <h2 class="slide-title"><span class="slide-icon">🗂️</span>Classful Addressing Overview</h2>
                 <div class="slide-content">
                     <div class="content-line highlight">Historical Background:</div>
@@ -465,8 +545,8 @@
                 </div>
             </div>
 
-            <!-- Slide 5: IP Address Classes -->
-            <div class="slide" data-slide="5">
+            <!-- Slide 7: IP Address Classes (Original Slide 7) -->
+            <div class="slide" data-slide="7">
                 <h2 class="slide-title"><span class="slide-icon">🧱</span>IP Address Classes</h2>
                 <div class="slide-content">
                     <table class="data-table">
@@ -544,8 +624,8 @@
                 </div>
             </div>
 
-            <!-- Slide 6: Classful Addressing Example -->
-            <div class="slide" data-slide="6">
+            <!-- Slide 8: Classful Addressing Example (Original Slide 8) -->
+            <div class="slide" data-slide="8">
                 <h2 class="slide-title"><span class="slide-icon">🔍</span>Classful Addressing Example</h2>
                 <div class="slide-content">
                     <div style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(255, 107, 53, 0.2)); padding: 30px; border-radius: 15px; margin-bottom: 30px; border: 2px solid var(--color-accent);">
@@ -579,11 +659,11 @@
                 </div>
             </div>
 
-            <!-- Slide 7: Limitations of Classful Addressing -->
-            <div class="slide" data-slide="7">
+            <!-- Slide 9: Limitations of Classful Addressing (Original Slide 9) -->
+            <div class="slide" data-slide="9">
                 <h2 class="slide-title"><span class="slide-icon">💡</span>Limitations of Classful Addressing</h2>
                 <div class="slide-content">
-                    <div style="display: flex; flex-direction: column; gap: 25px;">
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
                         <div style="background: rgba(244, 67, 54, 0.2); padding: 20px; border-radius: 10px; border-left: 4px solid #F44336;">
                             <div class="content-line error"><strong>❌ Severe IP Address Wastage</strong></div>
                             <div class="content-line indent">Many IP addresses were unused, leading to rapid depletion. For example, a company needing 300 hosts would get a Class B (65,534 hosts), wasting 65,234 addresses!</div>
@@ -603,17 +683,12 @@
                             <div class="content-line error"><strong>❌ Poor Scalability</strong></div>
                             <div class="content-line indent">Not efficient for modern Internet growth and requirements. By the early 1990s, IPv4 address exhaustion was predicted.</div>
                         </div>
-                        
-                        <div style="background: rgba(244, 67, 54, 0.2); padding: 20px; border-radius: 10px; border-left: 4px solid #F44336;">
-                            <div class="content-line error"><strong>❌ Inefficient Routing</strong></div>
-                            <div class="content-line indent">Required multiple routing table entries for the same network, bloating router memory and slowing down packet forwarding.</div>
-                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 8: Classless Addressing (CIDR) -->
-            <div class="slide" data-slide="8">
+            <!-- Slide 10: Classless Addressing (CIDR) (Original Slide 10) -->
+            <div class="slide" data-slide="10">
                 <h2 class="slide-title"><span class="slide-icon">🌍</span>Classless Addressing (CIDR)</h2>
                 <div class="slide-content">
                     <div class="content-line" style="font-size: 1.8rem; text-align: center; margin-bottom: 20px; color: #00d4ff;"><strong>CIDR: Classless Inter-Domain Routing</strong></div>
@@ -627,13 +702,13 @@
                     </div>
                     
                     <div class="content-line highlight" style="margin-top: 30px;">Key Features:</div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                        <div style="background: rgba(45, 90, 123, 0.3); padding: 20px; border-radius: 10px; border-left: 4px solid #00d4ff;">
+                    <div class="two-col-grid">
+                        <div class="info-box" style="border-left: 4px solid #00d4ff;">
                             <div style="font-size: 1.5rem; margin-bottom: 10px;">🔓</div>
                             <div class="content-line"><strong>Removes Rigid Boundaries</strong></div>
                             <div class="content-line" style="font-size: 1rem;">No more fixed class sizes</div>
                         </div>
-                        <div style="background: rgba(45, 90, 123, 0.3); padding: 20px; border-radius: 10px; border-left: 4px solid #ff6b35;">
+                        <div class="info-box" style="border-left: 4px solid #ff6b35;">
                             <div style="font-size: 1.5rem; margin-bottom: 10px;">📏</div>
                             <div class="content-line"><strong>Variable-Length Masks (VLSM)</strong></div>
                             <div class="content-line" style="font-size: 1rem;">Custom subnet sizes</div>
@@ -650,8 +725,8 @@
                 </div>
             </div>
 
-            <!-- Slide 9: CIDR Calculation Example -->
-            <div class="slide" data-slide="9">
+            <!-- Slide 11: CIDR Calculation Example (Original Slide 11) -->
+            <div class="slide" data-slide="11">
                 <h2 class="slide-title"><span class="slide-icon">🧮</span>CIDR Calculation Example</h2>
                 <div class="slide-content">
                     <div style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(76, 175, 80, 0.2)); padding: 25px; border-radius: 15px; margin-bottom: 25px; border: 2px solid var(--color-accent); text-align: center;">
@@ -686,8 +761,8 @@
                 </div>
             </div>
 
-            <!-- Slide 10: What is Subnetting? -->
-            <div class="slide" data-slide="10">
+            <!-- Slide 12: What is Subnetting? (Original Slide 12) -->
+            <div class="slide" data-slide="12">
                 <h2 class="slide-title"><span class="slide-icon">🕸️</span>What is Subnetting?</h2>
                 <div class="slide-content">
                     <div style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(156, 39, 176, 0.3)); padding: 30px; border-radius: 15px; margin-bottom: 30px; border: 2px solid var(--color-accent);">
@@ -715,62 +790,35 @@
                             <div class="content-line"><strong>Enhances Security</strong></div>
                             <div style="font-size: 1rem; color: #b0b0b0;">Isolates sensitive data</div>
                         </div>
-                        <div style="background: rgba(255, 152, 0, 0.2); padding: 20px; border-radius: 10px; border: 2px solid #FF9800;">
-                            <div style="font-size: 1.8rem; margin-bottom: 10px;">📊</div>
-                            <div class="content-line"><strong>Better Management</strong></div>
-                            <div style="font-size: 1rem; color: #b0b0b0;">Organized IP allocation</div>
-                        </div>
-                        <div style="background: rgba(156, 39, 176, 0.2); padding: 20px; border-radius: 10px; border: 2px solid #9C27B0;">
-                            <div style="font-size: 1.8rem; margin-bottom: 10px;">🎯</div>
-                            <div class="content-line"><strong>Efficient Routing</strong></div>
-                            <div style="font-size: 1rem; color: #b0b0b0;">Simplified packet forwarding</div>
-                        </div>
-                    </div>
-                    
-                    <div class="content-line highlight" style="margin-top: 30px;">Practical Example:</div>
-                    <div style="background: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px; margin-top: 15px; text-align: center;">
-                        <div class="mono" style="font-size: 1.3rem; color: #ff6b35;">192.168.1.0/24</div>
-                        <div style="font-size: 2rem; margin: 10px 0; color: #00d4ff;">⬇️ Subnet into 4 networks</div>
-                        <div class="mono" style="font-size: 1.3rem; color: #4CAF50;">192.168.1.0/26 (4 subnets)</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 11: Purpose of Subnetting -->
-            <div class="slide" data-slide="11">
+            <!-- Slide 13: Purpose of Subnetting (Original Slide 13) -->
+            <div class="slide" data-slide="13">
                 <h2 class="slide-title"><span class="slide-icon">📊</span>Purpose of Subnetting</h2>
                 <div class="slide-content">
-                    <div style="display: flex; flex-direction: column; gap: 25px;">
-                        <div style="background: rgba(76, 175, 80, 0.2); padding: 25px; border-radius: 10px; border-left: 4px solid #4CAF50;">
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 10px; border-left: 4px solid #4CAF50;">
                             <div class="content-line"><span style="font-size: 1.8rem; margin-right: 10px;">1️⃣</span> <strong style="font-size: 1.3rem; color: #4CAF50;">Efficient IP Address Utilization</strong></div>
                             <div class="content-line indent" style="margin-top: 10px;">Allocate only the needed addresses to each subnet, preventing waste. A department with 30 devices gets a /27 subnet (30 hosts) instead of /24 (254 hosts).</div>
                         </div>
                         
-                        <div style="background: rgba(33, 150, 243, 0.2); padding: 25px; border-radius: 10px; border-left: 4px solid #2196F3;">
+                        <div style="background: rgba(33, 150, 243, 0.2); padding: 20px; border-radius: 10px; border-left: 4px solid #2196F3;">
                             <div class="content-line"><span style="font-size: 1.8rem; margin-right: 10px;">2️⃣</span> <strong style="font-size: 1.3rem; color: #2196F3;">Reduces Network Congestion</strong></div>
                             <div class="content-line indent" style="margin-top: 10px;">Broadcast traffic is limited to smaller subnets, reducing unnecessary network load. Smaller broadcast domains = better performance.</div>
                         </div>
                         
-                        <div style="background: rgba(255, 152, 0, 0.2); padding: 25px; border-radius: 10px; border-left: 4px solid #FF9800;">
+                        <div style="background: rgba(255, 152, 0, 0.2); padding: 20px; border-radius: 10px; border-left: 4px solid #FF9800;">
                             <div class="content-line"><span style="font-size: 1.8rem; margin-right: 10px;">3️⃣</span> <strong style="font-size: 1.3rem; color: #FF9800;">Increases Security and Control</strong></div>
                             <div class="content-line indent" style="margin-top: 10px;">Isolate departments/groups on separate subnets with different security policies. HR can be on one subnet, Engineering on another, with firewall rules between them.</div>
-                        </div>
-                        
-                        <div style="background: rgba(156, 39, 176, 0.2); padding: 25px; border-radius: 10px; border-left: 4px solid #9C27B0;">
-                            <div class="content-line"><span style="font-size: 1.8rem; margin-right: 10px;">4️⃣</span> <strong style="font-size: 1.3rem; color: #9C27B0;">Simplifies Routing</strong></div>
-                            <div class="content-line indent" style="margin-top: 10px;">Hierarchical addressing reduces routing complexity and enables more efficient packet forwarding. Route summarization becomes possible.</div>
-                        </div>
-                        
-                        <div style="background: rgba(0, 212, 255, 0.2); padding: 25px; border-radius: 10px; border-left: 4px solid #00d4ff;">
-                            <div class="content-line"><span style="font-size: 1.8rem; margin-right: 10px;">5️⃣</span> <strong style="font-size: 1.3rem; color: #00d4ff;">Easier Network Maintenance</strong></div>
-                            <div class="content-line indent" style="margin-top: 10px;">Troubleshooting is limited to specific subnets, making problem identification and resolution faster. Network issues don't affect the entire organization.</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 12: Subnetting Example -->
-            <div class="slide" data-slide="12">
+            <!-- Slide 14: Subnetting Example (Original Slide 14) -->
+            <div class="slide" data-slide="14">
                 <h2 class="slide-title"><span class="slide-icon">🔢</span>Subnetting Example</h2>
                 <div class="slide-content">
                     <div style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(76, 175, 80, 0.2)); padding: 20px; border-radius: 10px; margin-bottom: 25px; border: 2px solid var(--color-accent); text-align: center;">
@@ -831,8 +879,47 @@
                 </div>
             </div>
 
-            <!-- Slide 13: Subnet Mask Explanation -->
-            <div class="slide" data-slide="13">
+            <!-- Slide 15: NEW - Calculating Network IDs (Original Slide 15) -->
+            <div class="slide" data-slide="15">
+                <h2 class="slide-title"><span class="slide-icon">🧠</span>Calculating Network IDs</h2>
+                <div class="slide-content">
+                    <div style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(255, 107, 53, 0.2)); padding: 20px; border-radius: 15px; margin-bottom: 25px; border: 2px solid var(--color-accent);">
+                        <div class="content-line highlight" style="font-size: 1.3rem;">Scenario:</div>
+                        <div class="content-line" style="font-size: 1.1rem;">You have <span class="mono">192.168.1.0/24</span> and need subnets with ~60 hosts each. <strong>How many subnets can you create?</strong></div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div class="info-box">
+                            <div class="content-line highlight">Step 1: Find Required Host Bits (H)</div>
+                            <div class="content-line indent">• Formula: <span class="mono">2^H - 2 >= 60</span></div>
+                            <div class="content-line indent">• <span class="mono">2^5 - 2 = 30</span> (Too small)</div>
+                            <div class="content-line indent">• <span class="mono">2^6 - 2 = 62</span> (Perfect!) → We need <strong style="color: #2196F3;">6 host bits</strong>.</div>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="content-line highlight">Step 2: Find New Network Prefix</div>
+                            <div class="content-line indent">• Total bits = 32. Host bits = 6.</div>
+                            <div class="content-line indent">• New Network Bits = <span class="mono">32 - 6 = 26</span> → New prefix is <strong style="color: #ff6b35;">/26</strong>.</div>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="content-line highlight">Step 3: Find Subnet Bits (S)</div>
+                            <div class="content-line indent">• Original Prefix: <span class="mono">/24</span>. New Prefix: <span class="mono">/26</span>.</div>
+                            <div class="content-line indent">• Bits Borrowed (Subnet Bits) = <span class="mono">26 - 24 = 2</span>. We borrowed <strong style="color: #00d4ff;">2 subnet bits</strong>.</div>
+                        </div>
+
+                        <div class="info-box" style="border: 2px solid #4CAF50;">
+                            <div class="content-line highlight">Step 4: Calculate Max Network IDs</div>
+                            <div class="content-line indent">• Formula: <span class="mono">2^S</span> (where S = Subnet Bits)</div>
+                            <div class="content-line indent">• Calculation: <span class="mono">2^2 = 4</span></div>
+                            <div class="content-line indent"><strong style="color: #4CAF50; font-size: 1.3rem;">Answer: You can create 4 maximum subnets.</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 16: Subnet Mask Explanation (Original Slide 16) -->
+            <div class="slide" data-slide="16">
                 <h2 class="slide-title"><span class="slide-icon">⚙️</span>Subnet Mask Explanation</h2>
                 <div class="slide-content">
                     <div style="background: rgba(0, 212, 255, 0.2); padding: 25px; border-radius: 10px; margin-bottom: 30px; border: 2px solid var(--color-accent);">
@@ -855,39 +942,20 @@
                         </div>
                     </div>
                     
-                    <div style="background: rgba(45, 90, 123, 0.3); padding: 25px; border-radius: 10px; margin-bottom: 25px; border-left: 4px solid #4CAF50;">
-                        <div class="content-line highlight">Bit Interpretation:</div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
-                            <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 8px; border: 2px solid #4CAF50;">
-                                <div style="font-size: 2rem; text-align: center; margin-bottom: 10px;">1️⃣</div>
-                                <div class="content-line" style="text-align: center;"><strong style="color: #4CAF50;">Network Portion</strong></div>
-                                <div class="mono" style="text-align: center; margin-top: 10px;">11111111 = 255</div>
-                                <div style="text-align: center; font-size: 0.9rem; color: #b0b0b0; margin-top: 5px;">All 1s in binary</div>
-                            </div>
-                            <div style="background: rgba(33, 150, 243, 0.2); padding: 20px; border-radius: 8px; border: 2px solid #2196F3;">
-                                <div style="font-size: 2rem; text-align: center; margin-bottom: 10px;">0️⃣</div>
-                                <div class="content-line" style="text-align: center;"><strong style="color: #2196F3;">Host Portion</strong></div>
-                                <div class="mono" style="text-align: center; margin-top: 10px;">11000000 = 192</div>
-                                <div style="text-align: center; font-size: 0.9rem; color: #b0b0b0; margin-top: 5px;">Mix of 1s and 0s</div>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <div style="background: rgba(255, 107, 53, 0.2); padding: 25px; border-radius: 10px; border: 2px solid #ff6b35;">
                         <div class="content-line highlight">How It Works:</div>
                         <div class="content-line indent">• <strong>IP AND Subnet Mask = Network Address</strong></div>
                         <div class="content-line indent">• Masks identify which hosts belong to the same network</div>
                         <div class="content-line indent">• Essential for routing decisions and packet forwarding</div>
-                        <div class="content-line indent">• Routers use masks to determine local vs. remote destinations</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 14: Advantages of Classless + Subnetting -->
-            <div class="slide" data-slide="14">
+            <!-- Slide 17: Advantages of Classless + Subnetting (Original Slide 17) -->
+            <div class="slide" data-slide="17">
                 <h2 class="slide-title"><span class="slide-icon">📈</span>Advantages of Classless + Subnetting</h2>
                 <div class="slide-content">
-                    <div style="display: flex; flex-direction: column; gap: 25px;">
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
                         <div style="background: rgba(76, 175, 80, 0.2); padding: 25px; border-radius: 10px; border-left: 4px solid #4CAF50;">
                             <div class="content-line"><span style="font-size: 1.5rem; margin-right: 10px;">✅</span> <strong style="font-size: 1.3rem; color: #4CAF50;">Efficient IP Allocation</strong></div>
                             <div class="content-line indent" style="margin-top: 10px;">No wasted addresses – only assign what's needed. Custom subnet sizes match actual requirements perfectly.</div>
@@ -902,57 +970,42 @@
                             <div class="content-line"><span style="font-size: 1.5rem; margin-right: 10px;">✅</span> <strong style="font-size: 1.3rem; color: #FF9800;">Route Summarization (Supernetting)</strong></div>
                             <div class="content-line indent" style="margin-top: 10px;">Multiple subnets represented by a single routing entry. Reduces routing table size and complexity dramatically.</div>
                         </div>
-                        
-                        <div style="background: rgba(156, 39, 176, 0.2); padding: 25px; border-radius: 10px; border-left: 4px solid #9C27B0;">
-                            <div class="content-line"><span style="font-size: 1.5rem; margin-right: 10px;">✅</span> <strong style="font-size: 1.3rem; color: #9C27B0;">Improved Security &amp; Control</strong></div>
-                            <div class="content-line indent" style="margin-top: 10px;">Separate subnets for different departments/functions. Implement specific access policies per subnet with firewalls and ACLs.</div>
-                        </div>
-                        
-                        <div style="background: rgba(0, 212, 255, 0.2); padding: 25px; border-radius: 10px; border-left: 4px solid #00d4ff;">
-                            <div class="content-line"><span style="font-size: 1.5rem; margin-right: 10px;">✅</span> <strong style="font-size: 1.3rem; color: #00d4ff;">Future-Proof Design</strong></div>
-                            <div class="content-line indent" style="margin-top: 10px;">Scales with organizational growth seamlessly. Supports millions of devices and complex network topologies efficiently.</div>
-                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 15: Summary & Conclusion -->
-            <div class="slide" data-slide="15">
+            <!-- Slide 18: Summary & Conclusion (Original Slide 18) -->
+            <div class="slide" data-slide="18">
                 <h2 class="slide-title"><span class="slide-icon">🧭</span>Summary &amp; Conclusion</h2>
                 <div class="slide-content">
                     <div class="content-line highlight" style="font-size: 1.8rem; text-align: center; margin-bottom: 30px;">📌 Key Takeaways</div>
                     
-                    <div style="display: flex; flex-direction: column; gap: 25px;">
-                        <div style="background: rgba(255, 152, 0, 0.2); padding: 25px; border-radius: 10px; border: 2px solid #FF9800;">
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="background: rgba(255, 152, 0, 0.2); padding: 20px; border-radius: 10px; border: 2px solid #FF9800;">
                             <div class="content-line" style="font-size: 1.4rem; margin-bottom: 10px;"><strong style="color: #FF9800;">1. Classful Addressing</strong></div>
                             <div class="content-line indent">• Fixed network sizes (Classes A, B, C)</div>
-                            <div class="content-line indent">• Simple but inflexible system</div>
                             <div class="content-line indent">• Historical approach, now <strong>obsolete</strong></div>
                             <div class="content-line indent">• Led to rapid IPv4 address depletion</div>
                         </div>
                         
-                        <div style="background: rgba(76, 175, 80, 0.2); padding: 25px; border-radius: 10px; border: 2px solid #4CAF50;">
+                        <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 10px; border: 2px solid #4CAF50;">
                             <div class="content-line" style="font-size: 1.4rem; margin-bottom: 10px;"><strong style="color: #4CAF50;">2. Classless Addressing (CIDR)</strong></div>
                             <div class="content-line indent">• Flexible network sizes with notation like /24, /26, /28</div>
                             <div class="content-line indent">• Modern standard for efficient IP allocation</div>
-                            <div class="content-line indent">• Enables Variable-Length Subnet Masks (VLSM)</div>
                             <div class="content-line indent">• Significantly extended IPv4 lifespan</div>
                         </div>
                         
-                        <div style="background: rgba(33, 150, 243, 0.2); padding: 25px; border-radius: 10px; border: 2px solid #2196F3;">
+                        <div style="background: rgba(33, 150, 243, 0.2); padding: 20px; border-radius: 10px; border: 2px solid #2196F3;">
                             <div class="content-line" style="font-size: 1.4rem; margin-bottom: 10px;"><strong style="color: #2196F3;">3. Subnetting</strong></div>
                             <div class="content-line indent">• Divides networks into smaller, manageable pieces</div>
                             <div class="content-line indent">• Improves performance, security, and efficiency</div>
                             <div class="content-line indent">• Essential skill for network administrators</div>
-                            <div class="content-line indent">• Enables hierarchical network design</div>
                         </div>
                     </div>
                     
-                    <div style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(255, 107, 53, 0.3)); padding: 30px; border-radius: 15px; margin-top: 30px; border: 3px solid var(--color-accent); text-align: center;">
+                    <div style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(255, 107, 53, 0.3)); padding: 20px; border-radius: 15px; margin-top: 20px; border: 3px solid var(--color-accent); text-align: center;">
                         <div class="content-line" style="font-size: 1.8rem; margin-bottom: 15px;">🌐 <strong>Conclusion</strong></div>
                         <div class="content-line" style="font-size: 1.2rem; line-height: 1.8;">
-                            These concepts are <strong style="color: #4CAF50;">ESSENTIAL</strong> for modern IP networks,<br>
-                            ISP infrastructure, and enterprise network design.<br><br>
                             <span style="color: #00d4ff;">Mastering IP addressing, CIDR, and subnetting is fundamental to becoming a successful network engineer!</span>
                         </div>
                     </div>
@@ -964,7 +1017,7 @@
         <div class="controls">
             <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
             <div class="slide-counter">
-                <span class="current" id="currentSlide">1</span> / <span id="totalSlides">15</span>
+                <span class="current" id="currentSlide">1</span> / <span id="totalSlides">18</span>
             </div>
             <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next →</button>
         </div>
@@ -972,7 +1025,10 @@
 
     <script>
         let currentSlide = 1;
-        const totalSlides = 15;
+        // Updated total slides to 18
+        const totalSlides = 18; 
+        const totalSlidesElem = document.getElementById('totalSlides');
+        totalSlidesElem.textContent = totalSlides;
 
         function updateSlideDisplay() {
             // Hide all slides
